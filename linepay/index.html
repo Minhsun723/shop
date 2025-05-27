@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LINE Pay</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --line-green: #06C755;
+            --text-dark: #333333;
+            --text-light: #888888;
+        }
+
+        /* --- 基本重設 --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Sans TC', sans-serif;
+            background-color: rgba(0, 0, 0, 0.7); /* 深色半透明背景 */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            color: var(--text-dark);
+        }
+
+        /* --- 主要付款視窗 --- */
+        .payment-window {
+            width: 380px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            animation: fadeIn 0.4s ease-out;
+        }
+        
+        /* --- 頂部標頭 --- */
+        .payment-header {
+            background-color: #f7f7f7;
+            padding: 20px;
+            text-align: center;
+            border-bottom: 1px solid #e5e5e5;
+        }
+        .line-pay-logo {
+            width: 100px;
+        }
+
+        /* --- 主要內容區域 --- */
+        .payment-body {
+            padding: 24px 30px;
+            text-align: center;
+        }
+
+        .instructions {
+            font-size: 1.1rem;
+            font-weight: 500;
+            margin-bottom: 16px;
+        }
+
+        .qr-code-wrapper {
+            margin-bottom: 16px;
+        }
+        .qr-code {
+            width: 180px;
+            height: 180px;
+            border: 1px solid #eee;
+            cursor: pointer; /* 讓 QR code 看起來可以點擊 */
+            transition: transform 0.2s ease;
+        }
+        .qr-code:hover {
+            transform: scale(1.05);
+        }
+
+        .order-details {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            margin-bottom: 24px;
+        }
+        .order-details .merchant-name {
+            font-weight: 700;
+            color: var(--text-dark);
+        }
+        .order-details .amount-value {
+            font-weight: 700;
+            color: var(--text-dark);
+        }
+
+        .timer-info {
+            font-size: 0.8rem;
+            color: var(--text-light);
+        }
+
+        /* --- 頁尾 --- */
+        .payment-footer {
+            background-color: #f7f7f7;
+            padding: 20px;
+            border-top: 1px solid #e5e5e5;
+            text-align: center;
+        }
+        .login-info {
+            font-size: 0.9rem;
+        }
+        .login-info a {
+            color: var(--line-green);
+            font-weight: 700;
+            text-decoration: none;
+        }
+        
+        .close-button-wrapper {
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid #e5e5e5;
+        }
+        #cancel-btn {
+            background: none;
+            border: 1px solid #ccc;
+            color: #555;
+            padding: 8px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.9rem;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.95); }
+            to { opacity: 1; transform: scale(1); }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="payment-window">
+        <header class="payment-header">
+            <img src="../images/linepay.svg" alt="LINE Pay Logo" class="line-pay-logo">
+        </header>
+
+        <main class="payment-body">
+            <p class="instructions">請使用LINE應用程式掃描行動條碼</p>
+            <div class="qr-code-wrapper">
+                <img id="confirm-qr-code" src="https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=VeryGoodShop-Order-Simulation" alt="QR Code" class="qr-code" title="點擊此處模擬付款成功">
+            </div>
+            <div class="order-details">
+                <span class="merchant-name">非常好購物</span><br>
+                <span>應付金額：</span><span id="order-total-display" class="amount-value">NT$0</span>
+            </div>
+            <div class="timer-info">
+                <span>行動條碼的有效時間為 </span><span id="countdown-timer">4:59</span>
+            </div>
+        </main>
+
+        <footer class="payment-footer">
+            <div class="login-info">
+                <span>使用您的LINE帳號登入</span>
+                <a href="#">LINE登入</a>
+            </div>
+            <div class="close-button-wrapper">
+                <button id="cancel-btn">關閉</button>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const confirmQRCode = document.getElementById('confirm-qr-code');
+            const cancelBtn = document.getElementById('cancel-btn');
+            const totalDisplay = document.getElementById('order-total-display');
+            const timerDisplay = document.getElementById('countdown-timer');
+
+            // --- 模擬付款與取消邏輯 ---
+            try {
+                const cart = JSON.parse(localStorage.getItem('cart')) || [];
+                if (cart.length === 0) throw new Error("購物車是空的");
+                
+                const totalAmount = cart.reduce((acc, item) => acc + item.price * item.quantity, 0);
+                totalDisplay.textContent = `NT$${totalAmount.toLocaleString()}`;
+
+                // 【模擬成功】: 點擊 QR Code
+                confirmQRCode.addEventListener('click', () => {
+                    localStorage.removeItem('cart');
+                    window.location.href = '../checkout_success/';
+                });
+
+            } catch (error) {
+                totalDisplay.textContent = '訂單錯誤';
+                confirmQRCode.style.pointerEvents = 'none'; // 如果出錯，則不允許點擊
+            }
+
+            // 【模擬取消】: 點擊關閉按鈕
+            cancelBtn.addEventListener('click', () => {
+                window.location.href = '../cart/';
+            });
+
+
+            // --- 純視覺效果：倒數計時器 ---
+            let timeLeft = 299; // 4分59秒
+            const timerInterval = setInterval(() => {
+                if (timeLeft <= 0) {
+                    clearInterval(timerInterval);
+                    return;
+                }
+                timeLeft--;
+                const minutes = Math.floor(timeLeft / 60);
+                const seconds = timeLeft % 60;
+                timerDisplay.textContent = `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+            }, 1000);
+        });
+    </script>
+</body>
+</html>
