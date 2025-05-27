@@ -234,10 +234,21 @@ document.addEventListener('DOMContentLoaded', () => {
 
         checkoutForm.addEventListener('submit', (event) => {
             event.preventDefault();
-            // 清空購物車並跳轉
-            cart = [];
-            saveAndRerenderCart();
-            window.location.href = '../checkout_success/';
+
+            const selectedPayment = document.querySelector('input[name="payment"]:checked').value;
+            // ================== LINE PAY 模擬流程 ==================
+            if (selectedPayment === 'line-pay') {
+                // 如果選擇 LINE Pay，導向我們的模擬頁面
+                window.location.href = '../linepay/';
+        
+            // ================== 信用卡或其他付款方式 ==================
+            } else {
+                // 這是處理信用卡或其他付款方式的邏輯
+                // 在此範例中，我們直接清空購物車並跳轉到成功頁面
+                cart = []; // 清空全域變數中的購物車
+                saveAndRerenderCart(); // 更新 localStorage 和 UI
+                window.location.href = '../checkout_success/';
+            }
         });
 
         toggleCreditCardInfo(); // Initial check
