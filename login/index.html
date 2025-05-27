@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>登入 - 非常好購物</title>
+    <link rel="icon" type="image/x-icon" href="../images/bag.png">
+    <link rel="stylesheet" href="../styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script src="../scripts.js" defer></script>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo-group">
+                <a href="../" class="logo-text-link">
+                    <span class="logo-text">非常好購物</span>
+                </a>
+
+                <span class="logo-divider">｜</span>
+
+                <a href="https://ascooo.com/" target="_blank" class="logo-image-link">
+                    <img src="../images/logo_black_cut.svg" alt="合作夥伴 Logo" class="logo-image logo-initial">
+                    <img src="../images/logo_black_cut.svg" alt="合作夥伴 Logo" class="logo-image logo-scrolled">
+                </a>
+            </div>
+            <ul class="desktop-nav">
+                <li><a href="../login/">登入</a></li>
+                <li><a href="../shop/">所有商品</a></li>
+                <li><a href="../cart/">購物車 (<span id="cart-count">0</span>)</a></li>
+            </ul>
+            <div class="mobile-nav-buttons">
+                <a href="../cart/" class="mobile-cart-link">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="mobile-cart-count" id="mobile-cart-count">0</span>
+                </a>
+                <button class="menu-toggle-btn" aria-label="開啟選單">
+                    <i class="fas fa-bars menu-icon-open"></i>
+                </button>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <div class="showcase-wrapper main-content-area">
+            <h2 class="content-title">會員登入</h2>
+            <div class="form-container">
+                <form action="../" method="post">
+                    <div class="form-group">
+                        <label for="username">使用者名稱：</label>
+                        <input type="text" id="username" name="username" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">密碼：</label>
+                        <input type="password" id="password" name="password" required>
+                    </div>
+                    <button type="submit">登入</button>
+                </form>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <div class="footer-main">
+            <nav class="footer-nav">
+                <ul>
+                    <li><a href="#">聯絡我們</a></li>
+                    <li><a href="#">關於本站</a></li>
+                    <li><a href="#">隱私權政策</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div class="footer-bottom">
+            <div class="footer-logos">
+                <a href="../" class="footer-logo-main">非常好購物</a>
+                <a href="https://ascooo.com/" target="_blank">
+                    <img src="../images/ascooo_black_cut.svg" alt="合作夥伴 Logo" class="footer-logo-partner">
+                </a>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2024 ACS112108 蔡旻勳</p>
+            </div>
+        </div>
+    </footer>
+
+    <div class="mobile-menu-panel">
+        <a href="../" class="logo mobile-menu-logo">
+            <span class="logo-text">非常好購物</span>
+        </a>
+        <button class="menu-close-btn" aria-label="關閉選單">
+            <i class="fas fa-times"></i>
+        </button>
+        <nav class="mobile-main-nav">
+            <ul>
+                <li><a href="../login/">登入</a></li>
+                <li><a href="../shop/">所有商品</a></li>
+            </ul>
+        </nav>
+    </div>
+</body>
+</html>

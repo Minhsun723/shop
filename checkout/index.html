@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>結帳 - 非常好購物</title>
+    <link rel="icon" type="image/x-icon" href="../images/bag.png">
+    <link rel="stylesheet" href="../styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+    <script async src="https://pay.google.com/gp/p/js/pay.js" onload="onGooglePayLoaded()"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script src="../scripts.js" defer></script>
+</head>
+<body id="page-checkout">
+    <header>
+        <nav>
+            <div class="logo-group">
+                <a href="../" class="logo-text-link">
+                    <span class="logo-text">非常好購物</span>
+                </a>
+
+                <span class="logo-divider">｜</span>
+
+                <a href="https://ascooo.com/" target="_blank" class="logo-image-link">
+                    <img src="../images/logo_black_cut.svg" alt="合作夥伴 Logo" class="logo-image logo-initial">
+                    <img src="../images/logo_black_cut.svg" alt="合作夥伴 Logo" class="logo-image logo-scrolled">
+                </a>
+            </div>
+            <ul class="desktop-nav">
+                <li><a href="../login/">登入</a></li>
+                <li><a href="../shop/">所有商品</a></li>
+                <li><a href="../cart/">購物車 (<span id="cart-count">0</span>)</a></li>
+            </ul>
+            <div class="mobile-nav-buttons">
+                <a href="../cart/" class="mobile-cart-link">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="mobile-cart-count" id="mobile-cart-count">0</span>
+                </a>
+                <button class="menu-toggle-btn" aria-label="開啟選單">
+                    <i class="fas fa-bars menu-icon-open"></i>
+                </button>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <div class="showcase-wrapper main-content-area">
+            <h2 class="content-title">結帳</h2>
+            <div class="checkout-layout">
+                <div class="payment-details">
+                    <form id="checkout-form">
+                        <h3>選擇付款方式</h3>
+                        <div class="payment-methods">
+                            <div class="payment-method">
+                                <input type="radio" id="credit-card" name="payment" value="credit-card" checked>
+                                <label for="credit-card"><img src="../images/credit.png" alt="CreditCard"></label>
+                            </div>
+                            <div class="credit-card-info">
+                                <div class="form-group">
+                                    <label for="cc-number">信用卡號碼：</label>
+                                    <input type="text" id="cc-number" name="cc-number" placeholder="0000-0000-0000-0000" required>
+                                </div>
+                                 <div class="form-group">
+                                    <label for="cc-expiration">有效日期：</label>
+                                    <input type="text" id="cc-expiration" name="cc-expiration" placeholder="MM/YY" required>
+                                </div>
+                                 <div class="form-group">
+                                    <label for="cc-cvv">安全碼：</label>
+                                    <input type="text" id="cc-cvv" name="cc-cvv" placeholder="CVV" required>
+                                </div>
+                            </div>
+                             <div class="payment-method">
+                                <input type="radio" id="line-pay" name="payment" value="line-pay">
+                                <label for="line-pay"><img src="../images/linepay.png" alt="LinePay"></label>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn-primary">確認付款</button>
+
+                        <div class="express-checkout-divider">
+                            <span>或</span>
+                        </div>
+
+                        <div class="express-checkout-grid">
+                            <div id="apple-pay-button-container"></div>
+                            <div id="google-pay-button-container"></div>
+                        </div>
+                    </form>
+                </div>
+                
+                <div class="order-summary">
+                    <h3>訂單摘要</h3>
+                    <div id="summary-items-list">
+                    </div>
+                    <div class="summary-total">
+                        <div class="total-row">
+                            <span>小計</span>
+                            <span id="summary-subtotal">$0</span>
+                        </div>
+                        <div class="total-row grand-total">
+                            <span>應付總額</span>
+                            <span id="summary-grand-total">$0</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <div class="footer-main">
+            <nav class="footer-nav">
+                <ul>
+                    <li><a href="#">聯絡我們</a></li>
+                    <li><a href="#">關於本站</a></li>
+                    <li><a href="#">隱私權政策</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div class="footer-bottom">
+            <div class="footer-logos">
+                <a href="../" class="footer-logo-main">非常好購物</a>
+                <a href="https://ascooo.com/" target="_blank">
+                    <img src="../images/ascooo_black_cut.svg" alt="合作夥伴 Logo" class="footer-logo-partner">
+                </a>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2024 ACS112108 蔡旻勳</p>
+            </div>
+        </div>
+    </footer>
+
+    <div class="mobile-menu-panel">
+        <a href="../" class="logo mobile-menu-logo">
+            <span class="logo-text">非常好購物</span>
+        </a>
+        <button class="menu-close-btn" aria-label="關閉選單">
+            <i class="fas fa-times"></i>
+        </button>
+        <nav class="mobile-main-nav">
+            <ul>
+                <li><a href="../login/">登入</a></li>
+                <li><a href="../shop/">所有商品</a></li>
+            </ul>
+        </nav>
+    </div>
+</body>
+</html>

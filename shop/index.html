@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>非常好購物 - 所有商品</title>
+    <link rel="icon" type="image/x-icon" href="../images/bag.png">
+    <link rel="stylesheet" href="../styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script src="../scripts.js" defer></script>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo-group">
+                <a href="../" class="logo-text-link">
+                    <span class="logo-text">非常好購物</span>
+                </a>
+
+                <span class="logo-divider">｜</span>
+
+                <a href="https://ascooo.com/" target="_blank" class="logo-image-link">
+                    <img src="../images/logo_black_cut.svg" alt="合作夥伴 Logo" class="logo-image logo-initial">
+                    <img src="../images/logo_black_cut.svg" alt="合作夥伴 Logo" class="logo-image logo-scrolled">
+                </a>
+            </div>
+            <ul class="desktop-nav">
+                <li><a href="../login/">登入</a></li>
+                <li><a href="../shop/">所有商品</a></li>
+                <li><a href="../cart/">購物車 (<span id="cart-count">0</span>)</a></li>
+            </ul>
+            <div class="mobile-nav-buttons">
+                <a href="../cart/" class="mobile-cart-link">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="mobile-cart-count" id="mobile-cart-count">0</span>
+                </a>
+                <button class="menu-toggle-btn" aria-label="開啟選單">
+                    <i class="fas fa-bars menu-icon-open"></i>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <div class="showcase-wrapper main-content-area">
+            <h2 class="content-title">所有商品</h2>
+            <section class="showcase-section">
+                <div class="showcase-container">
+                    <div class="product-item" data-id="1" data-name="iPad Pro 11吋" data-price="69900">
+                        <a href="#" class="product-link">
+                            <div class="card-image-wrapper"><img src="../images/ipadpro.jpg" alt="iPadPro"></div>
+                            <div class="product-info">
+                                <h3>iPad Pro 11吋</h3><p>薄出滂薄。M4 2TB。</p><div class="product-price">$69,900</div>
+                            </div>
+                        </a>
+                        <div class="product-action">
+                            <button class="add-to-cart">加入購物車</button>
+                        </div>
+                    </div>
+                    <div class="product-item" data-id="2" data-name="iPad Air 10.9吋" data-price="19900">
+                        <a href="#" class="product-link">
+                           <div class="card-image-wrapper"><img src="../images/ipadair.png" alt="iPadAir"></div>
+                            <div class="product-info">
+                                <h3>iPad Air 10.9吋</h3><p>好輕新。M2 128G。</p><div class="product-price">$19,900</div>
+                            </div>
+                        </a>
+                        <div class="product-action">
+                            <button class="add-to-cart">加入購物車</button>
+                        </div>
+                    </div>
+                    <div class="product-item" data-id="3" data-name="iPhone 15 128G" data-price="29900">
+                         <a href="#" class="product-link">
+                           <div class="card-image-wrapper"><img src="../images/iphone15.jpg" alt="iPhone15"></div>
+                           <div class="product-info">
+                               <h3>iPhone 15</h3><p>全精彩，全探索。128G。</p><div class="product-price">$29,900</div>
+                           </div>
+                        </a>
+                        <div class="product-action">
+                            <button class="add-to-cart">加入購物車</button>
+                        </div>
+                    </div>
+                    <div class="product-item" data-id="4" data-name="Apple Vision Pro 1TB" data-price="149900">
+                        <a href="#" class="product-link">
+                            <div class="card-image-wrapper"><img src="../images/visionpro.jpg" alt="Apple Vision Pro"></div>
+                            <div class="product-info">
+                                <h3>Apple Vision Pro</h3><p>空間計算的時代。1TB。</p><div class="product-price">$149,900</div>
+                            </div>
+                        </a>
+                        <div class="product-action">
+                            <button class="add-to-cart">加入購物車</button>
+                        </div>
+                    </div>
+                    <div class="product-item" data-id="5" data-name="Apple Watch S9" data-price="17500">
+                        <a href="#" class="product-link">
+                            <div class="card-image-wrapper"><img src="../images/s9.jpg" alt="Apple Watch Series 9"></div>
+                            <div class="product-info">
+                                <h3>Apple Watch S9</h3><p>智慧升級，亮度再晉級。</p><div class="product-price">$17,500</div>
+                            </div>
+                        </a>
+                        <div class="product-action">
+                            <button class="add-to-cart">加入購物車</button>
+                        </div>
+                    </div>
+                    <div class="product-item" data-id="6" data-name="AirPods Pro (2nd gen)" data-price="7490">
+                        <a href="#" class="product-link">
+                            <div class="card-image-wrapper"><img src="../images/airpods.jpg" alt="AirPods Pro (2nd generation)"></div>
+                            <div class="product-info">
+                                <h3>AirPods Pro (第2代)</h3><p>適應性音訊，現正開播。</p><div class="product-price">$7,490</div>
+                            </div>
+                        </a>
+                        <div class="product-action">
+                            <button class="add-to-cart">加入購物車</button>
+                        </div>
+                    </div>
+                    <div class="product-item" data-id="7" data-name="Apple Pencil Pro" data-price="4390">
+                        <a href="#" class="product-link">
+                           <div class="card-image-wrapper"><img src="../images/applepencilpro.jpg" alt="ApplePencilPro"></div>
+                            <div class="product-info">
+                                <h3>Apple Pencil Pro</h3><p>隨心所想，隨筆記下。</p><div class="product-price">$4,390</div>
+                            </div>
+                        </a>
+                        <div class="product-action">
+                            <button class="add-to-cart">加入購物車</button>
+                        </div>
+                    </div>
+                    <div class="product-item" data-id="8" data-name="HomePod mini" data-price="3000">
+                        <a href="#" class="product-link">
+                            <div class="card-image-wrapper"><img src="../images/homepodmini.jpg" alt="HomePod mini"></div>
+                            <div class="product-info">
+                                <h3>HomePod mini</h3><p>給你點顏色，好好聽。</p><div class="product-price">$3,000</div>
+                            </div>
+                        </a>
+                        <div class="product-action">
+                            <button class="add-to-cart">加入購物車</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-main">
+            <nav class="footer-nav">
+                <ul>
+                    <li><a href="#">聯絡我們</a></li>
+                    <li><a href="#">關於本站</a></li>
+                    <li><a href="#">隱私權政策</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div class="footer-bottom">
+            <div class="footer-logos">
+                <a href="../" class="footer-logo-main">非常好購物</a>
+                <a href="https://www.google.com/" target="_blank">
+                    <img src="../images/ascooo_black_cut.svg" alt="合作夥伴 Logo" class="footer-logo-partner">
+                </a>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2024 ACS112108 蔡旻勳</p>
+            </div>
+        </div>
+    </footer>
+
+    <div class="mobile-menu-panel">
+        <a href="../" class="logo mobile-menu-logo">
+            <span class="logo-text">非常好購物</span>
+        </a>
+        <button class="menu-close-btn" aria-label="關閉選單">
+            <i class="fas fa-times"></i>
+        </button>
+        <nav class="mobile-main-nav">
+            <ul>
+                <li><a href="../login/">登入</a></li>
+                <li><a href="../shop/">所有商品</a></li>
+            </ul>
+        </nav>
+    </div>
+</body>
+</html>

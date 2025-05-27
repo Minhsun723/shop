@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <title>Apple Pay 終極測試</title>
+    <style>
+        body { 
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+            height: 100vh; 
+            margin: 0;
+            font-family: -apple-system, BlinkMacSystemFont, sans-serif; 
+            flex-direction: column;
+            text-align: center;
+        }
+        #status {
+            padding: 20px;
+            background-color: #f0f0f0;
+            border-radius: 8px;
+            font-size: 1.2rem;
+            max-width: 80%;
+        }
+        #apple-pay-button {
+            display: none; /* 預設隱藏 */
+            -webkit-appearance: -apple-pay-button;
+            -apple-pay-button-type: buy;
+            -apple-pay-button-style: black;
+            width: 280px;
+            height: 48px;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="status">正在檢查 Apple Pay 環境...</div>
+    <button id="apple-pay-button" lang="en"></button>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const statusEl = document.getElementById('status');
+            const buttonEl = document.getElementById('apple-pay-button');
+
+            // 再次強調：必須透過 http:// 或 https:// 協定瀏覽此頁面
+            if (location.protocol !== 'http:' && location.protocol !== 'https:') {
+                statusEl.innerHTML = "錯誤：請務必透過本機伺服器 (http://localhost:8000) 瀏覽此頁面，<br>而不是直接打開檔案 (file://)。";
+                return;
+            }
+
+            // 1. 檢查 API 是否存在
+            if (window.ApplePaySession) {
+                statusEl.textContent = '成功找到 ApplePaySession API。正在檢查裝置付款能力...';
+                
+                // 2. 檢查裝置是否能付款
+                ApplePaySession.canMakePayments()
+                    .then(canMakePayments => {
+                        if (canMakePayments) {
+                            // 如果可以付款，就隱藏狀態文字，並顯示按鈕
+                            statusEl.style.display = 'none';
+                            buttonEl.style.display = 'block';
+                        } else {
+                            statusEl.textContent = '檢查失敗：您的裝置或 Wallet 設定不支援 Apple Pay 付款。請確認 Wallet 中已啟用至少一張卡片。';
+                        }
+                    })
+                    .catch(e => {
+                        statusEl.textContent = '發生程式錯誤: ' + e.message;
+                        console.error(e);
+                    });
+            } else {
+                statusEl.textContent = '檢查失敗：目前的瀏覽器不支援 Apple Pay。請確認您使用的是 Safari。';
+            }
+        });
+    </script>
+</body>
+</html>

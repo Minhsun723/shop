@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>非常好購物 - 首頁</title>
+    <link rel="icon" type="image/x-icon" href="images/Apple_Store_logo.svg.png">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script src="scripts.js" defer></script>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo-group">
+                <a href="index.html" class="logo-text-link">
+                    <span class="logo-text">非常好購物</span>
+                </a>
+
+                <span class="logo-divider">｜</span>
+
+                <a href="https://ascooo.com/" target="_blank" class="logo-image-link">
+                    <img src="images/logo_white_cut.svg" alt="合作夥伴 Logo" class="logo-image logo-initial">
+                    <img src="images/logo_black_cut.svg" alt="合作夥伴 Logo" class="logo-image logo-scrolled">
+                </a>
+            </div>
+            <ul class="desktop-nav">
+                <li><a href="login/">登入</a></li>
+                <li><a href="shop/">所有商品</a></li>
+                <li><a href="cart/">購物車 (<span id="cart-count">0</span>)</a></li>
+            </ul>
+            <div class="mobile-nav-buttons">
+                <a href="cart/" class="mobile-cart-link">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="mobile-cart-count" id="mobile-cart-count">0</span>
+                </a>
+                <button class="menu-toggle-btn" aria-label="開啟選單">
+                    <i class="fas fa-bars menu-icon-open"></i>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-slideshow">
+                <div class="hero-slide active"><img src="images/slide1.jpg" alt="Slide 1"></div>
+                <div class="hero-slide"><img src="images/slide2.jpg" alt="Slide 2"></div>
+                <div class="hero-slide"><img src="images/slide3.jpg" alt="Slide 3"></div>
+                <div class="hero-slide"><img src="images/slide4.jpg" alt="Slide 4"></div>
+                <div class="hero-slide"><img src="images/slide5.jpg" alt="Slide 5"></div>
+                <div class="hero-slide"><img src="images/slide6.jpg" alt="Slide 6"></div>
+            </div>
+            <button class="prev-slide"><i class="arrow left"></i></button>
+            <button class="next-slide"><i class="arrow right"></i></button>
+        </section>
+
+        <div class="showcase-wrapper">
+            <section class="showcase-section">
+                <div class="showcase-panel">
+                    <div class="showcase-header">
+                        <h2 class="showcase-title">
+                            <span class="title-en">HOT ITEMS</span>
+                            <span class="title-local">熱門商品</span>
+                        </h2>
+                    </div>
+                    <div class="showcase-container">
+                        <div class="product-item" data-id="1" data-name="iPad Pro 11吋" data-price="69900">
+                            <a href="#" class="product-link">
+                                <div class="card-image-wrapper">
+                                    <img src="images/ipadpro.jpg" alt="iPadPro">
+                                </div>
+                                <div class="product-info">
+                                    <h3>iPad Pro 11吋</h3>
+                                    <p>薄出滂薄。M4 晶片，2TB 容量。</p>
+                                    <div class="product-price">$69,900</div>
+                                </div>
+                            </a>
+                            <div class="product-action">
+                                <button class="add-to-cart">加入購物車</button>
+                            </div>
+                        </div>
+                        <div class="product-item" data-id="2" data-name="iPad Air 10.9吋" data-price="19900">
+                             <a href="#" class="product-link">
+                                <div class="card-image-wrapper">
+                                    <img src="images/ipadair.png" alt="iPadAir">
+                                </div>
+                                <div class="product-info">
+                                    <h3>iPad Air 10.9吋</h3>
+                                    <p>好輕新。M2 晶片，128G 容量。</p>
+                                    <div class="product-price">$19,900</div>
+                                </div>
+                            </a>
+                            <div class="product-action">
+                                <button class="add-to-cart">加入購物車</button>
+                            </div>
+                        </div>
+                         <div class="product-item" data-id="3" data-name="iPhone 15 128G" data-price="29900">
+                            <a href="#" class="product-link">
+                                <div class="card-image-wrapper">
+                                    <img src="images/iphone15.jpg" alt="iPhone15">
+                                </div>
+                                <div class="product-info">
+                                    <h3>iPhone 15</h3>
+                                    <p>全精彩，全探索。128G 容量。</p>
+                                    <div class="product-price">$29,900</div>
+                                </div>
+                            </a>
+                            <div class="product-action">
+                                <button class="add-to-cart">加入購物車</button>
+                            </div>
+                        </div>
+                        <div class="product-item" data-id="4" data-name="Apple Vision Pro 1TB" data-price="149900">
+                            <a href="#" class="product-link">
+                                <div class="card-image-wrapper">
+                                    <img src="images/visionpro.jpg" alt="Apple Vision Pro">
+                                </div>
+                                <div class="product-info">
+                                    <h3>Apple Vision Pro</h3>
+                                    <p>空間計算的時代，由此展開。</p>
+                                    <div class="product-price">$149,900</div>
+                                </div>
+                            </a>
+                            <div class="product-action">
+                                <button class="add-to-cart">加入購物車</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-main">
+            <nav class="footer-nav">
+                <ul>
+                    <li><a href="#">聯絡我們</a></li>
+                    <li><a href="#">關於本站</a></li>
+                    <li><a href="#">隱私權政策</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div class="footer-bottom">
+            <div class="footer-logos">
+                <a href="index.html" class="footer-logo-main">非常好購物</a>
+                <a href="https://ascooo.com/" target="_blank">
+                    <img src="images/ascooo_black_cut.svg" alt="合作夥伴 Logo" class="footer-logo-partner">
+                </a>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2024 ACS112108 蔡旻勳</p>
+            </div>
+        </div>
+    </footer>
+
+    <div class="mobile-menu-panel">
+        <a href="index.html" class="logo mobile-menu-logo">
+            <span class="logo-text">非常好購物</span>
+        </a>
+        <button class="menu-close-btn" aria-label="關閉選單">
+            <i class="fas fa-times"></i>
+        </button>
+        <nav class="mobile-main-nav">
+            <ul>
+                <li><a href="login/">登入</a></li>
+                <li><a href="shop/">所有商品</a></li>
+                <li class="mobile-menu-partner-logo">
+                    <a href="https://ascooo.com/" target="_blank" title="合作夥伴 ascooo">
+                        <img src="images/logo_black_cut.svg" alt="合作夥伴 Logo">
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</body>
+</html>
